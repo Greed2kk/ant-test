@@ -1,7 +1,7 @@
 import React from 'react'
 import 'antd/dist/antd.css'
 import { Layout } from 'antd'
-import { Link, BrowserRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import MyBreadcrumb from '../components/UI/Breadcrumbs/Breadcrumbs'
 import LogoImage from '../images/Logo.svg'
 
@@ -9,6 +9,8 @@ import MyHeader from '../components/Header/Header'
 import Logo from '../components/UI/Logo/Logo'
 
 const { Footer, Content } = Layout
+
+const authed = true
 
 const routes = [
   {
@@ -21,10 +23,15 @@ const routes = [
   },
 ]
 
+if (authed) {
+  routes.push({
+    path: '/upload',
+    breadcrumbName: 'Upload',
+  })
+}
+
 function itemRender(route, params, routes, paths) {
-  return (
-    <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
-  )
+  return <Link to={route.path}>{route.breadcrumbName}</Link>
 }
 
 const Home = () => (
@@ -37,13 +44,10 @@ const Home = () => (
     >
       <MyHeader>
         <Logo image={LogoImage} />
-        <BrowserRouter>
-          {' '}
-          <MyBreadcrumb
-            itemRender={itemRender}
-            routes={routes}
-          />
-        </BrowserRouter>
+        <MyBreadcrumb
+          itemRender={itemRender}
+          routes={routes}
+        />
       </MyHeader>
       <Content>Привет</Content>
       <Footer>Footer</Footer>
