@@ -11,6 +11,7 @@ import Logo from './components/UI/Logo/Logo'
 import LogoImage from './images/Logo.svg'
 import MyBreadcrumb from './components/UI/Breadcrumbs/Breadcrumbs'
 import AuthButton from './components/Content/AuthButton/AuthButton'
+import ImageState from './context/images/imagesState'
 
 const authed = false
 
@@ -39,22 +40,27 @@ function itemRender(route) {
 function App() {
   return (
     <div className={classes.App}>
-      <BrowserRouter>
-        <MyHeader>
-          <Logo image={LogoImage} />
-          <MyBreadcrumb
-            itemRender={itemRender}
-            routes={routes}
-          />
-          <AuthButton status="Auth" />
-        </MyHeader>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/new" component={NewPage} />
-          <Route path="/popular" component={PopularPage} />
-          <Route path="/upload" component={UploadPage} />
-        </Switch>
-      </BrowserRouter>
+      <ImageState>
+        <BrowserRouter>
+          <MyHeader>
+            <Logo image={LogoImage} />
+            <MyBreadcrumb
+              itemRender={itemRender}
+              routes={routes}
+            />
+            <AuthButton status="Auth" />
+          </MyHeader>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/new" component={NewPage} />
+            <Route
+              path="/popular"
+              component={PopularPage}
+            />
+            <Route path="/upload" component={UploadPage} />
+          </Switch>
+        </BrowserRouter>
+      </ImageState>
     </div>
   )
 }
