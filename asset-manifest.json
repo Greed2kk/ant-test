@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/ant-test/static/css/main.c22d0812.chunk.css",
+    "main.js": "/ant-test/static/js/main.81c1c43c.chunk.js",
+    "main.js.map": "/ant-test/static/js/main.81c1c43c.chunk.js.map",
+    "runtime-main.js": "/ant-test/static/js/runtime-main.cb111769.js",
+    "runtime-main.js.map": "/ant-test/static/js/runtime-main.cb111769.js.map",
+    "static/css/2.af9592cd.chunk.css": "/ant-test/static/css/2.af9592cd.chunk.css",
+    "static/js/2.4b2d7862.chunk.js": "/ant-test/static/js/2.4b2d7862.chunk.js",
+    "static/js/2.4b2d7862.chunk.js.map": "/ant-test/static/js/2.4b2d7862.chunk.js.map",
+    "index.html": "/ant-test/index.html",
+    "static/css/2.af9592cd.chunk.css.map": "/ant-test/static/css/2.af9592cd.chunk.css.map",
+    "static/css/main.c22d0812.chunk.css.map": "/ant-test/static/css/main.c22d0812.chunk.css.map",
+    "static/js/2.4b2d7862.chunk.js.LICENSE.txt": "/ant-test/static/js/2.4b2d7862.chunk.js.LICENSE.txt",
+    "static/media/Logo.a035f181.svg": "/ant-test/static/media/Logo.a035f181.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cb111769.js",
+    "static/css/2.af9592cd.chunk.css",
+    "static/js/2.4b2d7862.chunk.js",
+    "static/css/main.c22d0812.chunk.css",
+    "static/js/main.81c1c43c.chunk.js"
+  ]
+}
