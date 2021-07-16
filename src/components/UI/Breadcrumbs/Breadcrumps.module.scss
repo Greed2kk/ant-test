@@ -1,5 +1,10 @@
 .breadcrumbs {
-  margin-top: 29px;
-  margin-left: 324px;
   border-bottom: solid;
+  align-self: center;
+  flex-grow: 2;
+  display: flex;
+
+  span {
+    align-items: start;
+  }
 }

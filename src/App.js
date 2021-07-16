@@ -10,8 +10,9 @@ import MyHeader from './components/Header/Header'
 import Logo from './components/UI/Logo/Logo'
 import LogoImage from './images/Logo.svg'
 import MyBreadcrumb from './components/UI/Breadcrumbs/Breadcrumbs'
+import AuthButton from './components/Content/AuthButton/AuthButton'
 
-const authed = true
+const authed = false
 
 const routes = [
   {
@@ -45,6 +46,7 @@ function App() {
             itemRender={itemRender}
             routes={routes}
           />
+          <AuthButton status="Auth" />
         </MyHeader>
         <Switch>
           <Route path="/" exact component={Home} />
