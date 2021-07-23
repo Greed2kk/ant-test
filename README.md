@@ -4,4 +4,4 @@
 https://docs.google.com/document/d/1sp1b8io757cYxwGaPod0rlvtB3d-uicdwMhsUgO65io/edit
 
 ### API:
-https://docs.google.com/document/d/1sp1b8io757cYxwGaPod0rlvtB3d-uicdwMhsUgO65io/edit
+http://gallery.dev.webant.ru/api/docs
