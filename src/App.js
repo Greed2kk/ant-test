@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Link } from 'react-router-dom'
-import { Route, Switch } from 'react-router'
+import { Redirect, Route, Switch } from 'react-router'
+import { Layout } from 'antd'
 import classes from './App.module.scss'
 import NewPage from './components/Content/New/New'
 import PopularPage from './components/Content/Popular/Popular'
@@ -12,6 +13,8 @@ import LogoImage from './images/Logo.svg'
 import MyBreadcrumb from './components/UI/Breadcrumbs/Breadcrumbs'
 import AuthButton from './components/Content/AuthButton/AuthButton'
 import ImageState from './context/images/imagesState'
+import MyPagination from './components/UI/Pagination/Pagination'
+import MyFooter from './components/Footer/Footer'
 
 const authed = false
 
@@ -50,15 +53,26 @@ function App() {
             />
             <AuthButton status="Auth" />
           </MyHeader>
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/new" component={NewPage} />
-            <Route
-              path="/popular"
-              component={PopularPage}
-            />
-            <Route path="/upload" component={UploadPage} />
-          </Switch>
+          <Layout
+            style={{
+              height: '100vh',
+              width: '100%',
+            }}
+          >
+            <Switch>
+              <Redirect exact from="/" to="/new" />
+              <Route path="/new" component={NewPage} />
+              <Route
+                path="/popular"
+                component={PopularPage}
+              />
+              <Route
+                path="/upload"
+                component={UploadPage}
+              />
+            </Switch>
+            <MyFooter />
+          </Layout>
         </BrowserRouter>
       </ImageState>
     </div>

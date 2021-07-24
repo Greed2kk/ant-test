@@ -31,13 +31,7 @@ const ImageState = ({ children }) => {
     try {
       // setLoading()
       const response = await axios.get(
-        `/media_objects?page=${page}&limit=${usersPerPage}`,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-          },
-        }
+        `/media_objects?page=${page}&limit=${usersPerPage}`
       )
       dispatch({
         type: GET_PHOTOS,
