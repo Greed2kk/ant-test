@@ -55,8 +55,12 @@ function App() {
           </MyHeader>
           <Layout
             style={{
-              height: '100vh',
+              height: '94.5vh',
               width: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              flexWrap: 'nowrap',
+              alignItems: 'center',
             }}
           >
             <Switch>
@@ -71,7 +75,6 @@ function App() {
                 component={UploadPage}
               />
             </Switch>
-            <MyFooter />
           </Layout>
         </BrowserRouter>
       </ImageState>
