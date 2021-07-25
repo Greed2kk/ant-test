@@ -2,7 +2,11 @@ import React, { useReducer } from 'react'
 import axios from '../../axios/axios-gallery'
 import { ImagesContext } from './imagesContext'
 import { imagesReducer } from './imagesReducer'
-import { GET_PHOTOS, SET_LOADING } from '../types'
+import {
+  GET_ALL_PHOTOS,
+  GET_PHOTOS,
+  SET_LOADING,
+} from '../types'
 
 // const withCreds = url =>
 //   `${url}client_id=${clientId}&client_secret=${clientSecret}`
@@ -11,6 +15,8 @@ const ImageState = ({ children }) => {
   const initialState = {
     data: {},
     loading: false,
+    totalPhotos: {},
+    totalItems: 0,
   }
 
   const [state, dispatch] = useReducer(
@@ -18,18 +24,33 @@ const ImageState = ({ children }) => {
     initialState
   )
 
-  const { data } = state
+  const { data, loading, totalItems } = state
 
-  // const setLoading = () => {
-  //   dispatch({ type: SET_LOADING })
-  // }
+  const setLoading = () => {
+    dispatch({ type: SET_LOADING })
+  }
 
-  const searchUsers = async (
-    usersPerPage = 5,
-    page = 1
+  const getAllPhotos = async () => {
+    try {
+      setLoading()
+      const response = await axios.get(`/media_objects`)
+      dispatch({
+        type: GET_ALL_PHOTOS,
+        payload: response.data,
+      })
+      return response.data
+    } catch (e) {
+      console.warn(e)
+      throw e
+    }
+  }
+
+  const searchPhotos = async (
+    page = 1,
+    usersPerPage = 10
   ) => {
     try {
-      // setLoading()
+      setLoading()
       const response = await axios.get(
         `/media_objects?page=${page}&limit=${usersPerPage}`
       )
@@ -48,7 +69,10 @@ const ImageState = ({ children }) => {
     <ImagesContext.Provider
       value={{
         data,
-        searchUsers,
+        totalItems,
+        searchPhotos,
+        getAllPhotos,
+        loading,
       }}
     >
       {children}

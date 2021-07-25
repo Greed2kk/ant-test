@@ -2,12 +2,20 @@ import { Pagination } from 'antd'
 import React from 'react'
 import classes from './Pagination.module.scss'
 
-const myPagination = () => (
+const myPagination = ({
+  total,
+  onChange,
+  current = 1,
+  pageSize = 10,
+}) => (
   <Pagination
     className={classes.pagination}
-    defaultCurrent={6}
-    total={500}
+    current={current}
+    defaultCurrent={1}
+    total={total}
     showSizeChanger={false}
+    pageSize={pageSize}
+    onChange={onChange}
   />
 )
 
