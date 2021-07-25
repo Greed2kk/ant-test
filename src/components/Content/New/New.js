@@ -16,7 +16,7 @@ const NewPage = () => {
   const [page, setPage] = useState(1)
   const { data, searchPhotos, loading, totalItems } =
     useContext(ImagesContext)
-  const itemsOnPage = 20
+  const itemsOnPage = 21
   useEffect(() => {
     searchPhotos(page, itemsOnPage)
   }, [page])
